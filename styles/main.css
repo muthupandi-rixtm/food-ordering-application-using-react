@@ -1,7 +1,10 @@
+body {
+  background-color: #d8a8a8;
+}
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #f0f0f0;
+  background-color: #e68d8d;
   margin: 0px 70px;
   align-items: center;
 }
@@ -10,13 +13,6 @@
   width: 150px;
   padding: 5px;
 }
-
-/* .nav-items {
-  padding: 0px 20px;
-  text-align: center;
-  justify-content: center;
-  text-decoration: none;
-} */
 
 .menu-container {
   a {
@@ -28,6 +24,7 @@
     font-size: 20px;
     background-color: rgb(14, 14, 14);
     color: #fff;
+    border-radius: 5px;
   }
 }
 
@@ -87,7 +84,7 @@
 }
 
 .res-container:hover {
-  background-color: #ecdcc4;
+  background-color: #e68d8d;
   cursor: pointer;
 }
 /* #c1c1c1 */
@@ -104,13 +101,26 @@
 
 .login-btn {
   width: 100px;
+  height: 44px;
+  background-color: #111;
+  color: #fff;
+  border-radius: 5px;
+
+  font-family: Arial, Helvetica, sans-serif, "Gill Sans", "Gill Sans MT";
+  font-weight: bolder;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.login-btn:hover {
+  color: #f55302;
 }
 
 .filter-btn {
   margin-left: 70px;
   background-color: #111;
   color: #fff;
-  
+  border-radius: 10px;
 }
 
 .filter-btn:hover {
@@ -131,26 +141,31 @@
   margin-top: 20px;
 }
 
-.reset-btn{
+.reset-btn {
   height: 30px;
   margin-right: 70px;
   background-color: #111;
   color: #fff;
+  border-radius: 10px;
 }
-.reset-btn:hover{
+.reset-btn:hover {
   color: #f55302;
 }
 
-.search-btn{
+.search-btn {
   height: 30px;
   background-color: #111;
   color: #fff;
 }
-.search-btn:hover{
-  
+
+.search-btn:hover {
   color: #f55302;
 }
 
-.input-btn{
+.input-btn {
   height: 30px;
+}
+
+.footer{
+  height: 200px;
 }

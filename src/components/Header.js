@@ -20,7 +20,7 @@ const Header = () => {
         <Link to="/offers">Offers</Link>
         <Link to="/help"> Help</Link>
         <Link to="/contact">Contact Us</Link>
-        </div>
+        
         <button
           className="login-btn"
           onClick={() => {
@@ -31,7 +31,7 @@ const Header = () => {
         >
           {loginButtonName}
         </button>
-      
+        </div>
     </div>
   );
 };

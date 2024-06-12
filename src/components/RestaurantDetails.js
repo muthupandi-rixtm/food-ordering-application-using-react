@@ -1,7 +1,8 @@
 import { RESTAURANT_LIST_IMAGE_URL } from "../../utils/Constants";
+import{Link}from "react-router-dom";
 
 const RestaurantDetails = (props) => {
-  const { name,avgRating, sla, cuisines, locality, areaName, cloudinaryImageId } =
+  const { name,id,avgRating, sla, cuisines, locality, areaName, cloudinaryImageId } =
     props.restData.info;
   return (
     <div className="res-container">
@@ -12,7 +13,9 @@ const RestaurantDetails = (props) => {
           alt="Image"
         />
       </div>
-      <h3>{name}</h3>
+      <Link to={`/details/${id}`}>
+        <h3>{name}</h3>
+      </Link>
       <p>{avgRating}</p>
       <p>{sla.slaString}</p>
       <p>{cuisines.join(", ")}</p>

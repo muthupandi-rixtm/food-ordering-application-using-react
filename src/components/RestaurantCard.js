@@ -31,7 +31,7 @@ const RestaurantCard = () => {
           className="filter-btn"
           onClick={() => {
             const filteredOutput = restaurantList.filter(
-              (rest) => rest.info.avgRating >= 4.5
+              (rest) => rest.info.avgRating >4.2
             );
             setFilteredRestaurantList(filteredOutput);
           }}
