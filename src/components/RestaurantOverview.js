@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RESTAURANT_DETAILS_URL } from "../../utils/Constants";
+import OverviewShimmer from "./OverviewShimmer";
+import { RESTAURANT_MENU_URL } from "../../utils/Constants";
 
 const RestaurantOverview = () => {
   let { id } = useParams();
@@ -17,9 +19,15 @@ const RestaurantOverview = () => {
     const restaurantMenuJSON = await data.json();
     console.log(restaurantMenuJSON);
 
-    const restaurantMenuData =
+    const card1 =
       restaurantMenuJSON.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1]
         .card.card.itemCards;
+
+    const card2 =
+      restaurantMenuJSON.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2]
+        .card.card.itemCards;
+
+    const restaurantMenuData = card1 ? card1 : card2;
     setRestaurantMenuList(restaurantMenuData);
     setRestaurantName(restaurantMenuJSON.data.cards[0].card.card.text);
   };
@@ -30,16 +38,23 @@ const RestaurantOverview = () => {
       {restaurantMenuList.map((restMenu) => {
         return (
           <div className="rest-menu-list-cont">
+            <div>
+              <img
+                src={`${RESTAURANT_MENU_URL}${restMenu.card.info.imageId}`}
+                width="100"
+                height="100"
+              />
+            </div>
             <h3>{restMenu.card.info.name}</h3>
             <div>{`$ ${restMenu.card.info.price / 100}`}</div>
             <div>{`${restMenu.card.info.ratings.aggregatedRating.rating} (${restMenu.card.info.ratings.aggregatedRating.ratingCountV2})`}</div>
-            <div>Info</div>
+            <div>{restMenu.card.info.description}</div>
           </div>
         );
       })}
     </div>
   ) : (
-    <h3>Loading...</h3>
+    <OverviewShimmer />
   );
 };
 

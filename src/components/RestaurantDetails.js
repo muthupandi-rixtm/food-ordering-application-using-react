@@ -1,9 +1,17 @@
 import { RESTAURANT_LIST_IMAGE_URL } from "../../utils/Constants";
-import{Link}from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RestaurantDetails = (props) => {
-  const { name,id,avgRating, sla, cuisines, locality, areaName, cloudinaryImageId } =
-    props.restData.info;
+  const {
+    name,
+    id,
+    avgRating,
+    sla,
+    cuisines,
+    locality,
+    areaName,
+    cloudinaryImageId,
+  } = props.restData.info;
   return (
     <div className="res-container">
       <div className="img-cont">
@@ -13,7 +21,7 @@ const RestaurantDetails = (props) => {
           alt="Image"
         />
       </div>
-      <Link to={`/details/${id}`}>
+      <Link className="name" to={`/details/${id}`}>
         <h3>{name}</h3>
       </Link>
       <p>{avgRating}</p>

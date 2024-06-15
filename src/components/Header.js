@@ -10,17 +10,19 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img
-          className="logo"
-          src="https://i.pinimg.com/736x/9a/fa/a4/9afaa4a58b2c5e73cdbd7d66c0b2c220.jpg"
-        />
+        <Link to="/">
+          <img
+            className="logo"
+            src="https://i.pinimg.com/736x/9a/fa/a4/9afaa4a58b2c5e73cdbd7d66c0b2c220.jpg"
+          />
+        </Link>
       </div>
       <div className="menu-container">
         <Link to="/">Home</Link>
         <Link to="/offers">Offers</Link>
         <Link to="/help"> Help</Link>
         <Link to="/contact">Contact Us</Link>
-        
+
         <button
           className="login-btn"
           onClick={() => {
@@ -31,7 +33,7 @@ const Header = () => {
         >
           {loginButtonName}
         </button>
-        </div>
+      </div>
     </div>
   );
 };
