@@ -21,13 +21,16 @@ const RestaurantDetails = (props) => {
           alt="Image"
         />
       </div>
+
       <Link className="name" to={`/details/${id}`}>
         <h3>{name}</h3>
       </Link>
-      <p>{avgRating}</p>
-      <p>{sla.slaString}</p>
-      <p>{cuisines.join(", ")}</p>
-      <p>{`${locality}, ${areaName}`}</p>
+      <div className="description">
+        <p>{avgRating}</p>
+        <p>{sla.slaString}</p>
+        <p>{cuisines.join(", ")}</p>
+        <p>{`${locality}, ${areaName}`}</p>
+      </div>
     </div>
   );
 };

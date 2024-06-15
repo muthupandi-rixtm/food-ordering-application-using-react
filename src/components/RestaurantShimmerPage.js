@@ -6,8 +6,8 @@ const RestaurantShimmerPage = () => {
         <div className="rest-list-cont">
           {emptyDetails.map(() => {
             return (
-              <div className="rest-container">
-                <div className="img-cont">
+              <div className="rest-container-shimmer">
+                <div className="img-cont-shimmer">
                   <div className="img bg-gray"></div>
                 </div>
                 <h3></h3>

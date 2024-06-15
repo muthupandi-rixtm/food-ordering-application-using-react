@@ -13,7 +13,7 @@ const Header = () => {
         <Link to="/">
           <img
             className="logo"
-            src="https://i.pinimg.com/736x/9a/fa/a4/9afaa4a58b2c5e73cdbd7d66c0b2c220.jpg"
+            src="https://static.vecteezy.com/system/resources/previews/028/082/444/non_2x/food-point-logo-design-white-spoon-fork-and-plate-symbol-with-circle-shape-vector.jpg"
           />
         </Link>
       </div>

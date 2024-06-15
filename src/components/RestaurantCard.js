@@ -1,5 +1,5 @@
 import RestaurantDetails from "./RestaurantDetails";
-import RestaurantShimmerPage from "./RestaurantShimmerPage"
+import RestaurantShimmerPage from "./RestaurantShimmerPage";
 import { useState, useEffect } from "react";
 // import * as RestaurantJSONdata from "../../assets/data/resObj.json";
 import { RESTAURANT_LIST_URL } from "../../utils/Constants";
@@ -31,7 +31,7 @@ const RestaurantCard = () => {
           className="filter-btn"
           onClick={() => {
             const filteredOutput = restaurantList.filter(
-              (rest) => rest.info.avgRating >4.2
+              (rest) => rest.info.avgRating > 4.2
             );
             setFilteredRestaurantList(filteredOutput);
           }}
@@ -40,7 +40,8 @@ const RestaurantCard = () => {
         </button>
 
         <div className="search-cont">
-          <input className="input-btn"
+          <input
+            className="input-btn"
             type="text"
             id="searchInput"
             value={searchText}
@@ -49,7 +50,8 @@ const RestaurantCard = () => {
             }}
           />
 
-          <button className="search-btn"
+          <button
+            className="search-btn"
             onClick={() => {
               const filteredOutput = restaurantList.filter((rest) => {
                 return rest.info.name
@@ -62,7 +64,8 @@ const RestaurantCard = () => {
             Search
           </button>
         </div>
-        <button className="reset-btn"
+        <button
+          className="reset-btn"
           onClick={() => {
             setFilteredRestaurantList(restaurantList);
             setSearchText("");
