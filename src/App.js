@@ -7,9 +7,10 @@ import Main from "./components/Main";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
-import ContactUs from "./components/ContactUs";
+
 import Offers from "./components/Offers";
 import Help from "./components/Help";
+import AboutUs from "./components/AboutUs";
 import ErrorPage from "./components/ErrorPage";
 import RestaurantOverview from "./components/RestaurantOverview";
 
@@ -18,7 +19,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Outlet />
-      <Footer/>
+      <Footer />
     </div>
   );
 };
@@ -33,13 +34,15 @@ const appRouter = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: "/about",
+        path: "/",
         element: <Home />,
       },
+
       {
-        path: "/contact",
-        element: <ContactUs />,
+        path: "/about",
+        element: <AboutUs />,
       },
+
       {
         path: "/offers",
         element: <Offers />,

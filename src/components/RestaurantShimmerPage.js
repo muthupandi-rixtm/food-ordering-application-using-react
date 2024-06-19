@@ -1,20 +1,24 @@
 const RestaurantShimmerPage = () => {
   const emptyDetails = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="main">
-      <div className="main-cont">
+    <div className="main-shimmer">
+      <div className="main-cont-shimmer">
         <div className="rest-list-cont">
           {emptyDetails.map(() => {
             return (
-              <div className="rest-container-shimmer">
+              <div className="res-container-shimmer">
                 <div className="img-cont-shimmer">
-                  <div className="img bg-gray"></div>
+                  <img className="img" />
                 </div>
+
                 <h3></h3>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+
+                <div className="description">
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                </div>
               </div>
             );
           })}

@@ -19,9 +19,9 @@ const Header = () => {
       </div>
       <div className="menu-container">
         <Link to="/">Home</Link>
+        <Link to="/about">About Us</Link>
         <Link to="/offers">Offers</Link>
         <Link to="/help"> Help</Link>
-        <Link to="/contact">Contact Us</Link>
 
         <button
           className="login-btn"

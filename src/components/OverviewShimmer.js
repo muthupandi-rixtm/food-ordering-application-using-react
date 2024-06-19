@@ -2,7 +2,7 @@ const OverviewShimmer = () => {
   const empty = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <div className="overviewShimmer-main">
-        <h1>Restaurant Name</h1>
+      <h1>Restaurant Name</h1>
       <div className="overviewShimmer-cont">
         {empty.map(() => {
           return (

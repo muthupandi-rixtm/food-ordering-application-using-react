@@ -1,28 +1,17 @@
+import { useState, useEffect } from "react";
 import RestaurantDetails from "./RestaurantDetails";
 import RestaurantShimmerPage from "./RestaurantShimmerPage";
-import { useState, useEffect } from "react";
-// import * as RestaurantJSONdata from "../../assets/data/resObj.json";
-import { RESTAURANT_LIST_URL } from "../../utils/Constants";
+import useRestaurantCard from "../custom-hooks/useRestaurantCard";
 
 const RestaurantCard = () => {
-  const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    console.log("use effect called");
-    fetchRestaurantList();
-  }, []);
+  const restaurantList = useRestaurantCard();
 
-  const fetchRestaurantList = async () => {
-    const data = await fetch(RESTAURANT_LIST_URL);
-    const restaurantJSON = await data.json();
-    let restaurantData =
-      restaurantJSON.data.cards[4].card.card.gridElements.infoWithStyle
-        .restaurants;
-    setRestaurantList(restaurantData);
-    setFilteredRestaurantList(restaurantData);
-  };
+  useEffect(() => {
+    setFilteredRestaurantList(restaurantList);
+  }, [restaurantList]);
 
   return filteredRestaurantList.length ? (
     <div className="main-cont">
@@ -81,9 +70,6 @@ const RestaurantCard = () => {
       </div>
     </div>
   ) : (
-    // <div className="loader-cont">
-    //   <h1>Loading...</h1>
-    // </div>
     <RestaurantShimmerPage />
   );
 };
