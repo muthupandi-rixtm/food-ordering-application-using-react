@@ -4,14 +4,16 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color:#fc8019;
   margin: 0px 70px;
   align-items: center;
   height: 100px;
+  margin-top: -8px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .logo {
-  width: 150px;
+  width: 100px;
   padding: 5px;
 }
 
@@ -26,12 +28,12 @@ body {
     font-size: 19px;
     font-weight: 700;
 
-    color: #3f4354;
+    color: #fff;
   }
 }
 
 .menu-container > a:hover {
-  color: #f55302;
+  color: #3d3939;
 }
 
 .nav-items > ul {
@@ -135,17 +137,17 @@ body {
 .login-btn {
   width: 100px;
   height: 44px;
-  color: #3f4354;
+  color: #fff;
   font-family: Arial, Helvetica, sans-serif, "Gill Sans", "Gill Sans MT";
   font-weight: bolder;
   font-size: 19px;
   margin-right: 20px;
   border: none;
-  background-color: #fff;
+  background: none;
 }
 
 .login-btn:hover {
-  color: #f55302;
+  color: #3d3939;
 }
 
 .filter-btn {
@@ -258,6 +260,7 @@ body {
 .btn-main {
   display: flex;
   justify-content: space-between;
+  margin-top: 25px;
 }
 .btn-title {
   font-family: "Basis Grotesque Pro", Arial, sans-serif !important;

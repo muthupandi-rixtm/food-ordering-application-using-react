@@ -7,26 +7,29 @@ const imgData = ImagesData.data.cards[0].card.card.imageGridCards.info;
 const Banner = () => {
   return (
     <div>
-      <div className="btn-main">
-      <div className="btn-title">What's on your mind?</div>
-      <div className="btn-container">
-        <button
-          onClick={() => {
-            document.getElementById("container").scrollLeft -= 160 * 4;
-          }}
-        >
-          &lt;
-        </button>
-        <button
-          onClick={() => {
-            document.getElementById("container").scrollLeft += 160 * 4;
-          }}
-        >
-          &gt;
-        </button>
+      <div className="btn-main flex justify-between mx-10 my-3 mr-44 ml-44 ">
+        <div className="btn-title">What's on your mind?</div>
+        <div className="btn-container">
+          <button
+            onClick={() => {
+              document.getElementById("container").scrollLeft -= 160 * 4;
+            }}
+          >
+            &lt;
+          </button>
+          <button
+            onClick={() => {
+              document.getElementById("container").scrollLeft += 160 * 4;
+            }}
+          >
+            &gt;
+          </button>
+        </div>
       </div>
-      </div>
-      <div className="img-container" id="container">
+      <div
+        className="img-container flex ml-36 mr-36 overflow-hidden"
+        id="container"
+      >
         {imgData.map((banner) => {
           return <BannerImage key={banner.id} bannerContent={banner} />;
         })}

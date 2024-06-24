@@ -22,12 +22,13 @@ const UserFunction = (props) => {
   }, []);
 
   return (
-    <div className="git-menu-list-cont">
+    <div className="git-menu-list-cont ml-10  w-4/12">
       <h2>Name: {name}</h2>
       <h4>Email: {email}</h4>
       <h4>Id: {id}</h4>
       <p>{!registered ? "Please Register" : "Registration Successful"}</p>
       <button
+        className="border-2 border-solid border-gray-300  bg-gray-300 w-32"
         onClick={() => {
           if (registered) {
             setRegistered(false);
@@ -40,13 +41,18 @@ const UserFunction = (props) => {
       >
         {buttonName}
       </button>
-      <div className="details-cont">
+      <div className="details-cont ">
         <div>
           <h1>Git details</h1>
           <h3>{`Name-${userDetails.login}`}</h3>
           <h4>{`Git URL - ${userDetails.repos_url}`}</h4>
         </div>
-        <img src={userDetails.avatar_url} width="100" height="100" />
+        <img
+          className="ml-2"
+          src={userDetails.avatar_url}
+          width="100"
+          height="100"
+        />
       </div>
     </div>
   );

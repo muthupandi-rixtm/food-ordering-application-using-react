@@ -4,9 +4,9 @@ const RestaurantShimmerPage = () => {
     <div className="main-shimmer">
       <div className="main-cont-shimmer">
         <div className="rest-list-cont">
-          {emptyDetails.map(() => {
+          {emptyDetails.map((value) => {
             return (
-              <div className="res-container-shimmer">
+              <div key={value} className="res-container-shimmer">
                 <div className="img-cont-shimmer">
                   <img className="img" />
                 </div>

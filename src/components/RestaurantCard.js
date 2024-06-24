@@ -15,9 +15,9 @@ const RestaurantCard = () => {
 
   return filteredRestaurantList.length ? (
     <div className="main-cont">
-      <div className="filter">
+      <div className="filter flex justify-between ml-44 mr-44">
         <button
-          className="filter-btn"
+          className="filter-btn font-[Arial, Helvetica, sans-serif] font-semibold text-xl"
           onClick={() => {
             const filteredOutput = restaurantList.filter(
               (rest) => rest.info.avgRating > 4.2
@@ -30,7 +30,7 @@ const RestaurantCard = () => {
 
         <div className="search-cont">
           <input
-            className="input-btn"
+            className="input-btn border-2 border-solid border-black "
             type="text"
             id="searchInput"
             value={searchText}
@@ -63,7 +63,7 @@ const RestaurantCard = () => {
           Reset
         </button>
       </div>
-      <div className="rest-list-cont">
+      <div className="rest-list-cont flex flex-wrap ml-32 mt-10">
         {filteredRestaurantList.map((rest) => {
           return <RestaurantDetails key={rest?.info?.id} restData={rest} />;
         })}
