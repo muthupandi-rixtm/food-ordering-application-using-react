@@ -13,9 +13,10 @@ const RestaurantOverview = () => {
   const categories = cardDetails.filter((category) => {
     return (
       category.card.card["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ||
-      category.card.card["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      //   ||
+      // category.card.card["@type"] ===
+      //   "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
     );
   });
 

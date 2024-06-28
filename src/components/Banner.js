@@ -8,16 +8,19 @@ const Banner = () => {
   return (
     <div>
       <div className="btn-main flex justify-between mx-10 my-3 mr-44 ml-44 ">
-        <div className="btn-title">What's on your mind?</div>
+        <div className="btn-title font-sans text-xl font-bold">
+          What's on your mind?
+        </div>
         <div className="btn-container">
           <button
+            className="  font-bold text-2xl w-10 h-10 text-white bg-black mr-2 rounded-md "
             onClick={() => {
               document.getElementById("container").scrollLeft -= 160 * 4;
             }}
           >
             &lt;
           </button>
-          <button
+          <button  className=" font-bold text-2xl w-10 h-10 text-white bg-black rounded-md "
             onClick={() => {
               document.getElementById("container").scrollLeft += 160 * 4;
             }}
