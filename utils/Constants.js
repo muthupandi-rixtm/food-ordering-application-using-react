@@ -10,3 +10,5 @@ export const RESTAURANT_MENU_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
 export const GIT_USER_DETAILS =
   "https://api.github.com/users/muthupandi-rixtm";
+  export const MENU_DETAILS_IMAGE_URL =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";

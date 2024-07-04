@@ -1,28 +1,29 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
-import Main from "./components/Main";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
-
-import Offers from "./components/Offers";
-import Help from "./components/Help";
+import Main from "./components/Main";
 import AboutUs from "./components/AboutUs";
+
+import Help from "./components/Help";
 import ErrorPage from "./components/ErrorPage";
 import RestaurantOverview from "./components/RestaurantOverview";
+// import Groceries from "./components/Groceries";
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className='main-container'>
       <Header />
       <Outlet />
       <Footer />
     </div>
   );
 };
+
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -34,19 +35,11 @@ const appRouter = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: "/",
-        element: <Home />,
-      },
-
-      {
         path: "/about",
         element: <AboutUs />,
       },
-
-      {
-        path: "/offers",
-        element: <Offers />,
-      },
+      
+      
       {
         path: "/help",
         element: <Help />,
@@ -55,6 +48,7 @@ const appRouter = createBrowserRouter([
         path: "/details/:id",
         element: <RestaurantOverview />,
       },
+      
     ],
   },
 ]);

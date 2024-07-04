@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { RESTAURANT_DETAILS_URL } from "../../utils/Constants";
 
-const useRestaurantMenuCard = (id) => {
+import { RESTAURANT_DETAILS_URL } from "../../utils/constants";
+
+const useRestaurantMenuList = (id) => {
   // const [restaurantMenuList, setRestaurantMenuList] = useState([]);
   const [restaurantName, setRestaurantName] = useState("Name");
   const [cardItems, setCardItems] = useState([]);
@@ -30,11 +31,11 @@ const useRestaurantMenuCard = (id) => {
       restaurantMenuJSON.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards
     );
   };
-
   return {
+    // menuList: restaurantMenuList,
     restaurantName: restaurantName,
     cardDetails: cardItems,
   };
 };
 
-export default useRestaurantMenuCard;
+export default useRestaurantMenuList;

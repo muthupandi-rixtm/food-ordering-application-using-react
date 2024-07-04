@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { GIT_USER_DETAILS } from "../../utils/Constants";
+import { GIT_USER_DETAILS } from "../../utils/constants";
 const UserFunction = (props) => {
   const { name, id, email } = props;
+
   const [registered, setRegistered] = useState(false);
-  const [buttonName, setButtonName] = useState("register");
+  const [buttonName, setButtonName] = useState("Register");
 
   const [userDetails, setUserDetails] = useState({
     login: "Sample",
     avatar_url: "",
     repos_url: "",
   });
+
+  let timer = null;
 
   fetchGITRepoList = async () => {
     const data = await fetch(GIT_USER_DETAILS);
@@ -21,38 +24,41 @@ const UserFunction = (props) => {
     fetchGITRepoList();
   }, []);
 
+  useEffect(() => {
+    timer = setInterval(() => {
+      console.log("set interval called for functional component");
+    }, 1000);
+    return () => {
+      console.log("Interval to be cleared here for functional component");
+      clearInterval(timer);
+    };
+  }, []);
+
   return (
-    <div className="git-menu-list-cont ml-10  w-4/12">
+    <div className='git-menu-list-cont'>
       <h2>Name: {name}</h2>
       <h4>Email: {email}</h4>
       <h4>Id: {id}</h4>
-      <p>{!registered ? "Please Register" : "Registration Successful"}</p>
+      <p>{!registered ? "Please Register" : "Registration successful"}</p>
       <button
-        className="border-2 border-solid border-gray-300  bg-gray-300 w-32"
         onClick={() => {
           if (registered) {
             setRegistered(false);
             setButtonName("Register");
           } else {
             setRegistered(true);
-            setButtonName("Unregister");
+            setButtonName("UnRegister");
           }
-        }}
-      >
+        }}>
         {buttonName}
       </button>
-      <div className="details-cont ">
+      <div className='details-cont'>
         <div>
           <h1>Git details</h1>
-          <h3>{`Name-${userDetails.login}`}</h3>
+          <h3>{`Name - ${userDetails.login}`}</h3>
           <h4>{`Git URL - ${userDetails.repos_url}`}</h4>
         </div>
-        <img
-          className="ml-2"
-          src={userDetails.avatar_url}
-          width="100"
-          height="100"
-        />
+        <img src={userDetails.avatar_url} width='100' height='100' />
       </div>
     </div>
   );

@@ -1,55 +1,74 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [loginButtonName, setLoginButtonName] = useState(["Login"]);
 
+const Header = () => {
+  console.log("Header change");
+  const [loginButtonName, setLoginButtonName] = useState(["Login"]);
+  const [cartButtonName, setCartButtonName] = useState(["Add to cart"]);
   useEffect(() => {
     console.log("use effect in header called");
   }, [loginButtonName]);
+
+
+
   return (
-    <div className="header px-3 py-3   flex justify-between 	bg-[#fc8019] text-xl">
-      <div className="logo-container cursor-pointer ml-32">
-        <Link to="/">
+    <div className='header flex justify-between bg-orange-300 px-2 py-2'>
+      <div className='logo-container'>
+      <Link to="/">
           <img
             width={100}
             src="https://seeklogo.com/images/F/food-delivery-symbol-logo-37F3E64A34-seeklogo.com.png"
           />
         </Link>
       </div>
-      <div className="menu-container flex items-center mr-32">
-        <Link to="/">
-          <a className="px-3 font-semibold" href="#">
-            Home
-          </a>
+      <ul className='menu-container flex items-center'>
+        <Link to='/'>
+          <li className='px-3 font-semibold' href='#'>
+            🛒 Home
+          </li>
         </Link>
-        <Link to="/about">
-          <a className="px-3 font-semibold" href="#">
-            About Us
-          </a>
+        <Link to='/about'>
+          <li className='px-3 font-semibold' href='#'>
+            🆕 About Us
+          </li>
         </Link>
-        <Link to="/offers">
-          <a className="px-3 font-semibold" href="#">
-            Offers
-          </a>
+        <Link to='/help'>
+          <li className='px-3 font-semibold' href='#'>
+            🆘 Help
+          </li>
         </Link>
-        <Link to="/help">
-          <a className="px-3 font-semibold" href="#">
+        
+        <Link to='/help'>
+          <li className='px-3 font-semibold' href='#'>
             Help
-          </a>
+          </li>
         </Link>
-
-        <button
-          className="login-btn px-3 font-semibold"
-          onClick={() => {
-            setLoginButtonName(
-              loginButtonName === "Login" ? "Logout" : "Login"
-            );
-          }}
-        >
-          {loginButtonName}
-        </button>
-      </div>
+        
+        
+        <li>
+          <button
+            className='login-btn px-3 font-semibold'
+            onClick={() => {
+              setLoginButtonName(
+                loginButtonName === "Login" ? "Logout" : "Login"
+              );
+            }}>
+            {loginButtonName}
+          </button>
+        </li>
+        <li>
+          <button
+            className='add-to-cart-btn px-3 font-semibold'
+            onClick={() => {
+              setCartButtonName(
+                cartButtonName === "Add to cart" ? "Payment" : "Add to cart"
+              );
+            }}>
+            {cartButtonName}
+          </button>
+        </li>
+      </ul>
     </div>
   );
 };

@@ -1,36 +1,36 @@
+import RestaurantDetails, {RecommendedRestaurantDetails,} from "./RestaurantDetails";
 import { useState, useEffect } from "react";
-import RestaurantDetails from "./RestaurantDetails";
-import RestaurantShimmerPage from "./RestaurantShimmerPage";
-import useRestaurantCard from "../custom-hooks/useRestaurantCard";
 
-const RestaurantCard = () => {
+import RestaurantShimmerPage from "./RestaurantShimmerPage";
+import useRestaurantList from "../custom-hooks/useRestaurantList";
+const RestaurantList = () => {
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const restaurantList = useRestaurantList();
 
-  const restaurantList = useRestaurantCard();
-
+  const RecommendedCardDetails =
+    RecommendedRestaurantDetails(RestaurantDetails);
   useEffect(() => {
     setFilteredRestaurantList(restaurantList);
   }, [restaurantList]);
 
   return filteredRestaurantList.length ? (
     <div className="main-cont">
-      <div className="filter flex justify-between ml-44 mr-44">
+      <div className="filter-cont flex my-3 justify-between">
         <button
-          className="filter-btn text-xl font-bold text-white bg-black w-56 rounded-md "
+          className="bg-indigo-900 text-white px-2 py-2 font-normal rounded-md"
           onClick={() => {
-            const filteredOutput = restaurantList.filter(
-              (rest) => rest.info.avgRating > 4.2
-            );
+            const filteredOutput = restaurantList.filter((rest) => {
+              return rest.info.avgRating > 4.2;
+            });
             setFilteredRestaurantList(filteredOutput);
           }}
         >
-          Top Rated Restaurant
+          Show top rated restaurants
         </button>
-
         <div className="search-cont">
           <input
-            className="input-btn border-2 border-solid border-black pt-[3]  "
+            className="border border-gray-500 rounded w-4/6 mx-2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="searchInput"
             value={searchText}
@@ -38,9 +38,8 @@ const RestaurantCard = () => {
               setSearchText(event.target.value);
             }}
           />
-
           <button
-            className="search-btn text-xl font-bold text-white bg-black w-20 rounded-r-md pb-[1]"
+            className="bg-indigo-900 text-white px-2 py-2 font-normal rounded-md"
             onClick={() => {
               const filteredOutput = restaurantList.filter((rest) => {
                 return rest.info.name
@@ -53,8 +52,9 @@ const RestaurantCard = () => {
             Search
           </button>
         </div>
+
         <button
-          className="reset-btn  text-xl font-bold text-white bg-black w-20 rounded-md"
+          className="bg-indigo-900 text-white px-2 py-2 font-normal rounded-md"
           onClick={() => {
             setFilteredRestaurantList(restaurantList);
             setSearchText("");
@@ -63,15 +63,23 @@ const RestaurantCard = () => {
           Reset
         </button>
       </div>
-      <div className="rest-list-cont flex flex-wrap ml-[160] mt-10">
+      <div className="rest-list-cont flex flex-wrap mt-6">
         {filteredRestaurantList.map((rest) => {
-          return <RestaurantDetails key={rest?.info?.id} restData={rest} />;
+          return rest?.info?.avgRating >= 4.5 ? (
+            <RecommendedCardDetails key={rest?.info?.id} restData={rest} />
+          ) : (
+            <RestaurantDetails key={rest?.info?.id} restData={rest} />
+          );
         })}
       </div>
     </div>
   ) : (
+    // <div className='loader-cont'>
+    //   <h1>Loading...</h1>
+    // </div>
+
     <RestaurantShimmerPage />
   );
 };
 
-export default RestaurantCard;
+export default RestaurantList;
