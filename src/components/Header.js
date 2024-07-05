@@ -62,7 +62,7 @@ const Header = () => {
 
         <li>
           <button
-            className="add-to-cart-btn text-white hover:text-black px-3 font-bold text-xl"
+            className="add-to-cart-btn w-40 text-white hover:text-black px-3 font-bold text-xl"
             onClick={() => {
               setCartButtonName(
                 cartButtonName === "Add to cart" ? "Payment" : "Add to cart"
