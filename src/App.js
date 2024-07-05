@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -7,22 +7,25 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 import AboutUs from "./components/AboutUs";
-
+import Offers from "./components/Offers";
 import Help from "./components/Help";
 import ErrorPage from "./components/ErrorPage";
 import RestaurantOverview from "./components/RestaurantOverview";
+import UserContext from "../utils/UserContext";
 // import Groceries from "./components/Groceries";
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState("Muthupandi");
   return (
-    <div className='main-container'>
-      <Header />
-      <Outlet />
-      <Footer />
+    <div className="main-container">
+      <UserContext.Provider value={{ loggedUser: userName, setUserName }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 };
-
 
 const appRouter = createBrowserRouter([
   {
@@ -38,8 +41,11 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: <AboutUs />,
       },
-      
-      
+
+      {
+        path: "/offers",
+        element: <Offers />,
+      },
       {
         path: "/help",
         element: <Help />,
@@ -48,7 +54,6 @@ const appRouter = createBrowserRouter([
         path: "/details/:id",
         element: <RestaurantOverview />,
       },
-      
     ],
   },
 ]);

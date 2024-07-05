@@ -1,21 +1,17 @@
 import { useState } from "react";
-
 import RestaurantMenuListItem from "./RestaurantMenuListItem";
+import RestaurantSubCategory from "./RestaurantSubCategory";
 
 const RestaurantCategory = (props) => {
   const category = props.category;
-
-  const [showDetails, setShowDetails] = useState(false);
-  const [showSubCategory, setShowSubCategory] = useState(false);
+  const expandHideCategoryParameter = props.expandHideCategoryParameter;
+  const expandFunction = props.expandFunction;
 
   const shoHideDetailsMenu = () => {
-    setShowDetails(!showDetails);
+    expandFunction();
   };
 
-  const showHideSubCategory = () => {
-    setShowSubCategory(!showSubCategory);
-  };
-
+  const [expandSubCategoryIndex, setExpandSubCategoryIndex] = useState(1);
   return (
     <div className='shadow-lg shadow-gray-400 mb-5'>
       <div
@@ -29,37 +25,24 @@ const RestaurantCategory = (props) => {
         </p>
         <p>⏬</p>
       </div>
-      {showDetails ? (
+      {expandHideCategoryParameter ? (
         <div>
           {category.card.card["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory" ? (
             <div>
-              {category.card.card.categories.map((subCategory) => {
+              {category.card.card.categories.map((subCategory, index) => {
                 return (
-                  <div className='mx-7 my-4' key={subCategory.title}>
-                    <div
-                      className='px-2 py-2 flex justify-between  bg-gray-200 cursor-pointer'
-                      onClick={showHideSubCategory}>
-                      <p className='font-semibold text-lg '>
-                        {subCategory.title}
-                      </p>
-                      <p>⏬</p>
-                    </div>
-                    {showSubCategory ? (
-                      <div>
-                        {subCategory.itemCards.map((categoryItem) => {
-                          return (
-                            <RestaurantMenuListItem
-                              key={categoryItem.card.info.id}
-                              cardItems={categoryItem}
-                            />
-                          );
-                        })}
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
-                  </div>
+                  <RestaurantSubCategory
+                    expandSubCategoryParameter={
+                      index === expandSubCategoryIndex ? true : false
+                    }
+                    expandFunction={() =>
+                      setExpandSubCategoryIndex(
+                        index === expandSubCategoryIndex ? null : index
+                      )
+                    }
+                    subCategory={subCategory}
+                  />
                 );
               })}
             </div>

@@ -11,14 +11,14 @@ export default Banner = () => {
         <p className='font-bold text-2xl'>What's on your mind?</p>
         <div className='btn-container'>
           <button
-            className='bg-indigo-900 w-10 h-10 text-white font-semibold text-2xl rounded-md mr-2'
+            className='bg-black w-10 h-10 text-white font-semibold text-2xl rounded-md mr-2'
             onClick={() => {
               document.getElementById("container").scrollLeft -= 160 * 4;
             }}>
             &lt;
           </button>
           <button
-            className='bg-indigo-900 w-10 h-10 text-white font-semibold text-2xl rounded-md'
+            className='bg-black w-10 h-10 text-white font-semibold text-2xl rounded-md'
             onClick={() => {
               document.getElementById("container").scrollLeft += 160 * 4;
             }}>
