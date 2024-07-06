@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
-
+import { Provider } from "react-redux";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -12,17 +12,20 @@ import Help from "./components/Help";
 import ErrorPage from "./components/ErrorPage";
 import RestaurantOverview from "./components/RestaurantOverview";
 import UserContext from "../utils/UserContext";
+import appStore from "./store/app.store";
 // import Groceries from "./components/Groceries";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState("Muthupandi");
   return (
     <div className="main-container">
-      <UserContext.Provider value={{ loggedUser: userName, setUserName }}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ loggedUser: userName, setUserName }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
     </div>
   );
 };
