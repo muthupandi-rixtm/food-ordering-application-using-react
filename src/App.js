@@ -13,6 +13,7 @@ import ErrorPage from "./components/ErrorPage";
 import RestaurantOverview from "./components/RestaurantOverview";
 import UserContext from "../utils/UserContext";
 import appStore from "./store/app.store";
+import Cart from "./components/Cart"
 // import Groceries from "./components/Groceries";
 
 const AppLayout = () => {
@@ -57,6 +58,10 @@ const appRouter = createBrowserRouter([
         path: "/details/:id",
         element: <RestaurantOverview />,
       },
+      {
+        path:"/cart",
+        element:<Cart/>
+      }
     ],
   },
 ]);

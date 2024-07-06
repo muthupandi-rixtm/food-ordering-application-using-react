@@ -23,7 +23,7 @@ const RestaurantList = () => {
           className='bg-black text-white px-2 py-2 font-normal rounded-md'
           onClick={() => {
             const filteredOutput = restaurantList.filter((rest) => {
-              return rest.info.avgRating > 4.5;
+              return rest.info.avgRating > 4.2;
             });
             setFilteredRestaurantList(filteredOutput);
           }}>
